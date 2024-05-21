@@ -11,6 +11,13 @@ It features:
     - Creating files
     - Viewing all files
 
+## Render Deployment
+
+Website URL: [NodeJS File System](https://nodejs-filesystem-32xx.onrender.com/)
+
+- Create a new text file:  https://nodejs-filesystem-32xx.onrender.com/create
+- View all files:  https://nodejs-filesystem-32xx.onrender.com/view
+
 ## Installation and Setup
 
 1. Clone the repository:
