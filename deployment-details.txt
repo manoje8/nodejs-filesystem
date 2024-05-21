@@ -1,5 +1,8 @@
 NodeJS File System
 
+Region: Oregon(US west)
+Time Zone: Pacific Standard Time (PST)
+
 Website URL: https://nodejs-filesystem-32xx.onrender.com/
 
     -Create a new text file:  https://nodejs-filesystem-32xx.onrender.com/create
@@ -7,4 +10,4 @@ Website URL: https://nodejs-filesystem-32xx.onrender.com/
 
 Github URL: https://github.com/manoje8/nodejs-filesystem
 
-Last Commited Hash: bcf9842
+Last Commited Hash: c2dc1d9

@@ -13,6 +13,9 @@ It features:
 
 ## Render Deployment
 
+Region: Oregon(US west)
+Time Zone: Pacific Standard Time (PST)
+
 Website URL: [NodeJS File System](https://nodejs-filesystem-32xx.onrender.com/)
 
 - Create a new text file:  https://nodejs-filesystem-32xx.onrender.com/create
