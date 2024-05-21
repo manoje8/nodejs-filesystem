@@ -1,6 +1,6 @@
 import express from "express";
 import { format } from 'date-fns';
-import fs from 'fs/promises'
+import fs from 'fs'
 
 const app = express();
 const port = 3000;
@@ -58,9 +58,9 @@ const createPage = (formateDate, data) => {
 }
 
 // Function to generate the view page content
-const viewPage = async (textFile) => {
-    const tableRows = await Promise.all(textFile.map(async(file, index) => {
-        const fileContent = await fs.readFile(`./time-stamp/${file}`,"utf8");
+const viewPage = (textFile) => {
+    const tableRows = (textFile.map((file, index) => {
+        const fileContent = fs.readFileSync(`./time-stamp/${file}`,"utf8");
         return `
         <tr key = ${index}>
             <td style = "${tableBorder}">${file}</td>
@@ -98,14 +98,14 @@ const textError = (error) => {
 // Route handlers
 app.get("/", (req, res) => res.status(200).send(HomePage("Node.js File system")))
 
-app.get("/create",async(req, res) => {
+app.get("/create",(req, res) => {
     try {
         const formateDate = format(new Date(), "dd-MM-yyyy-HH-mm-ss");
         const filePath = `./time-stamp/${formateDate}.txt`;
         const date = `Current timestamp: ${formateDate}`
 
-        fs.writeFile(filePath, date, "utf8")
-        let content = await fs.readFile(filePath, "utf8")
+        fs.writeFileSync(filePath, date, "utf8")
+        let content =  fs.readFileSync(filePath, "utf8")
 
         res.status(200).send(createPage(formateDate, content))
     }catch(err)
@@ -114,11 +114,11 @@ app.get("/create",async(req, res) => {
     }  
 })
 
-app.get("/view",async(req, res) => {
+app.get("/view",(req, res) => {
     try {
         // Get all the files from the time-stamp directory
-        const textFiles = await fs.readdir("./time-stamp")
-        res.status(200).send(await viewPage(textFiles))
+        const textFiles = fs.readdirSync("./time-stamp")
+        res.status(200).send(viewPage(textFiles))
     }catch(err)
     {
         res.send(textError(err.message))
